@@ -154,19 +154,19 @@ int main(void)
     /* Counter */
     uint32_t contador = 0;
 
-    /* CypherText and PlainText */
-    uint8_t cypherText[length + 1], plainText[length + 1];
-    memset(cypherText, 0, sizeof(cypherText));
+    /* CipherText and PlainText */
+    uint8_t cipherText[length + 1], plainText[length + 1];
+    memset(cipherText, 0, sizeof(cipherText));
     memset(plainText, 0, sizeof(plainText));
 
     /* Call function to encrypt */
-    CHACHA20_Encrypt(message, cypherText, length, key, nonce, contador);
-    PRINTF("\r\nCHACHA20 CypherText \r\n");
+    CHACHA20_Encrypt(message, cipherText, length, key, nonce, contador);
+    PRINTF("\r\nCHACHA20 CipherText \r\n");
     for (uint32_t i = 0; i < length; i++) {
-    	PRINTF("%02x ", cypherText[i]);
+    	PRINTF("%02x ", cipherText[i]);
     }
 
-    CHACHA20_Encrypt(cypherText, plainText, length, key, nonce, contador);
+    CHACHA20_Encrypt(cipherText, plainText, length, key, nonce, contador);
     PRINTF("\r\nCHACHA20 PlainText \r\n");
     PRINTF("%s", plainText);
 
